@@ -18,10 +18,9 @@ services:
     image: postgres:12.4-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    environment:
-      - POSTGRES_USER=django_postgres_api
-      - POSTGRES_PASSWORD=django_postgres_api
-      - POSTGRES_DB=django_postgres_api_dev
+    env_file:
+      - ./.env.db
+
 
 volumes:
   postgres_data:
